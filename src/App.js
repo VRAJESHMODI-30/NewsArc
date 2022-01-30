@@ -1,113 +1,107 @@
 import "./App.css";
 
-import React, { Component } from "react";
-import { NavBar } from "./components/NavBar";
+import React, { useState } from "react";
 import News from "./components/News";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
+import NavBar from "./components/NavBar";
 
-export default class App extends Component {
-  pageSize = 6;
-  apiKey = "48abd4773d9e41dbb333da634caa84ab";
+const App = () => {
+  const pageSize = 6;
+  const apiKey = "48abd4773d9e41dbb333da634caa84ab";
   // apiKey = process.env.REACT_APP_NEWS_API;
 
-  state = {
-    progress: 0,
-  };
-  setProgress = (progress) => {
-    this.setState({ progress: progress });
-  };
+  const [progress, setProgress] = useState(0);
 
-  render() {
-    return (
-      <div>
-        <Router>
-          <LoadingBar color="#f11946" progress={this.state.progress} />
-          <NavBar />
-          <Switch>
-            <Route exact path="/">
-              <News
-                setProgress={this.setProgress}
-                key="home"
-                pageSize={this.pageSize}
-                country="in"
-                category="general"
-                apiKey={this.apiKey}
-              />
-            </Route>
-            <Route exact path="/business">
-              <News
-                setProgress={this.setProgress}
-                key="business"
-                pageSize={this.pageSize}
-                country="in"
-                category="business"
-                apiKey={this.apiKey}
-              />
-            </Route>
-            <Route exact path="/entertainment">
-              <News
-                setProgress={this.setProgress}
-                key="entertainment"
-                pageSize={this.pageSize}
-                country="in"
-                category="entertainment"
-                apiKey={this.apiKey}
-              />
-            </Route>
-            <Route exact path="/general">
-              <News
-                setProgress={this.setProgress}
-                key="general"
-                pageSize={this.pageSize}
-                country="in"
-                category="general"
-                apiKey={this.apiKey}
-              />
-            </Route>
-            <Route exact path="/health">
-              <News
-                setProgress={this.setProgress}
-                key="health"
-                pageSize={this.pageSize}
-                country="in"
-                category="health"
-                apiKey={this.apiKey}
-              />
-            </Route>
-            <Route exact path="/science">
-              <News
-                setProgress={this.setProgress}
-                key="science"
-                pageSize={this.pageSize}
-                country="in"
-                category="science"
-                apiKey={this.apiKey}
-              />
-            </Route>
-            <Route exact path="/sports">
-              <News
-                setProgress={this.setProgress}
-                key="sports"
-                pageSize={this.pageSize}
-                country="in"
-                category="sports"
-                apiKey={this.apiKey}
-              />
-            </Route>
-            <Route exact path="/technology">
-              <News
-                setProgress={this.setProgress}
-                key="technology"
-                pageSize={this.pageSize}
-                country="in"
-                category="technology"
-                apiKey={this.apiKey}
-              />
-            </Route>
-          </Switch>
-        </Router>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <Router>
+        <LoadingBar color="#f11946" progress={progress} />
+        <NavBar />
+        <Switch>
+          <Route exact path="/">
+            <News
+              setProgress={setProgress}
+              key="home"
+              pageSize={pageSize}
+              country="in"
+              category="general"
+              apiKey={apiKey}
+            />
+          </Route>
+          <Route exact path="/business">
+            <News
+              setProgress={setProgress}
+              key="business"
+              pageSize={pageSize}
+              country="in"
+              category="business"
+              apiKey={apiKey}
+            />
+          </Route>
+          <Route exact path="/entertainment">
+            <News
+              setProgress={setProgress}
+              key="entertainment"
+              pageSize={pageSize}
+              country="in"
+              category="entertainment"
+              apiKey={apiKey}
+            />
+          </Route>
+          <Route exact path="/general">
+            <News
+              setProgress={setProgress}
+              key="general"
+              pageSize={pageSize}
+              country="in"
+              category="general"
+              apiKey={apiKey}
+            />
+          </Route>
+          <Route exact path="/health">
+            <News
+              setProgress={setProgress}
+              key="health"
+              pageSize={pageSize}
+              country="in"
+              category="health"
+              apiKey={apiKey}
+            />
+          </Route>
+          <Route exact path="/science">
+            <News
+              setProgress={setProgress}
+              key="science"
+              pageSize={pageSize}
+              country="in"
+              category="science"
+              apiKey={apiKey}
+            />
+          </Route>
+          <Route exact path="/sports">
+            <News
+              setProgress={setProgress}
+              key="sports"
+              pageSize={pageSize}
+              country="in"
+              category="sports"
+              apiKey={apiKey}
+            />
+          </Route>
+          <Route exact path="/technology">
+            <News
+              setProgress={setProgress}
+              key="technology"
+              pageSize={pageSize}
+              country="in"
+              category="technology"
+              apiKey={apiKey}
+            />
+          </Route>
+        </Switch>
+      </Router>
+    </div>
+  );
+};
+export default App;
