@@ -5,9 +5,10 @@ import News from "./components/News";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LoadingBar from "react-top-loading-bar";
 import NavBar from "./components/NavBar";
+import Home from "./components/Home";
 
 const App = () => {
-  const pageSize = 6;
+  let pageSize = 6;
   const apiKey = "48abd4773d9e41dbb333da634caa84ab";
   // apiKey = process.env.REACT_APP_NEWS_API;
 
@@ -20,14 +21,22 @@ const App = () => {
         <NavBar />
         <Switch>
           <Route exact path="/">
-            <News
+            <Home
+              setProgress={setProgress}
+              key="home"
+              // pageSize={}
+              country="in"
+              category="general"
+              apiKey={apiKey}
+            />
+            {/* <News
               setProgress={setProgress}
               key="home"
               pageSize={pageSize}
               country="in"
               category="general"
               apiKey={apiKey}
-            />
+            /> */}
           </Route>
           <Route exact path="/business">
             <News
