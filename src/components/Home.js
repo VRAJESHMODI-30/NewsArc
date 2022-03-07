@@ -10,13 +10,6 @@ const Home = (props) => {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalResults, setTotalResults] = useState(0);
-  let a = 0;
-
-  // const capitalizeFirstLetter = (str) => {
-  //   let str1 = str.slice(1);
-  //   let newStr = str.charAt(0).toUpperCase() + str1;
-  //   return newStr;
-  // };
 
   const updateNews = async () => {
     props.setProgress(15);
@@ -40,12 +33,6 @@ const Home = (props) => {
     updateNews();
     //eslint-disable-next-line
   }, []);
-  const breakPoints = [
-    { width: 1, itemsToShow: 1 },
-    { width: 550, itemsToShow: 2 },
-    { width: 768, itemsToShow: 3 },
-    { width: 1200, itemsToShow: 4 },
-  ];
 
   return (
     <>
